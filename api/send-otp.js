@@ -1,14 +1,10 @@
-const twilio = require("twilio");
+const twilio = require(“twilio”);
 
-module.exports = async (req, res) => {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Only POST allowed" });
-  }
+module.exports = async (req, res) => { if (req.method !== “POST”) {
+return res.status(405).json({ error: “Only POST allowed” }); }
 
-  let body = "";
-  req.on("data", chunk => body += chunk);
-  req.on("end", async () => {
-    let data = {};
+let body = ““; req.on(”data”, chunk => body += chunk); req.on(“end”,
+async () => { let data = {};
 
     try {
       data = JSON.parse(body || "{}");
@@ -32,8 +28,8 @@ module.exports = async (req, res) => {
 
       const message = await client.messages.create({
         from: "whatsapp:+14155238886",
-        to: whatsapp:+62${phone},  // ← WAJIB pakai backtick!
-        body: Kode OTP kamu: ${otp},
+        to: `whatsapp:+62${phone}`,
+        body: `Kode OTP kamu: ${otp}`,
       });
 
       res.status(200).json({ ok: true, sid: message.sid });
@@ -42,5 +38,5 @@ module.exports = async (req, res) => {
       console.log("TWILIO ERROR:", err);
       res.status(500).json({ error: err.message });
     }
-  });
-};
+
+}); };
