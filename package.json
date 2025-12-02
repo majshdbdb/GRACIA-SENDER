@@ -1,6 +1,7 @@
 {
-  "name": "wa-otp-app",
+  "name": "wa-otp",
   "version": "1.0.0",
+  "main": "index.js",
   "dependencies": {
     "twilio": "^4.0.0"
   }
