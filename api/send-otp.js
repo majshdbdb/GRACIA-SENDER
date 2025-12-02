@@ -27,7 +27,8 @@ module.exports = async (req, res) => {
       const message = await client.messages.create({
         from: "whatsapp:+14155238886",
         to: `whatsapp:+62${phone}`,
-        body: `Kode OTP kamu: ${otp}`,
+        body: `Mau dimodalin main tanpa depo dan full WD buat kamu ngga bos?  
+Kalo mau langsung chat ke 085808268453`,
       });
 
       return res.status(200).json({ ok: true, sid: message.sid });
