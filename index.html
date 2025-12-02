@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Kirim OTP WhatsApp</h2>
+<input id="phone" placeholder="Nomor tanpa 0, ex: 8570xxxx">
+<button onclick="sendOTP()">Kirim OTP</button>
+<p id="status"></p>
+
+<script>
+async function sendOTP(){
+  const phone=document.getElementById("phone").value;
+  const status=document.getElementById("status");
+  status.innerText="Mengirim...";
+  try{
+    const res=await fetch("/api/send-otp",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({phone})});
+    const data=await res.json();
+    status.innerText = res.ok ? "OTP terkirim!" : "Error: "+data.error;
+  }catch(e){status.innerText="Fetch error";}
+}
+</script>
+</body>
+</html>
