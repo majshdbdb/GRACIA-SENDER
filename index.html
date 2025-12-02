@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Kirim WA Via Telegram Gateway</h2>
+<input id="phone" placeholder="85708100766"><br><br>
+<textarea id="msg" placeholder="Isi Pesan"></textarea><br><br>
+<button onclick="send()">Kirim Pesan</button>
+<p id="status"></p>
+<script>
+async function send(){
+  const phone=document.getElementById("phone").value;
+  const msg=document.getElementById("msg").value;
+  const status=document.getElementById("status");
+  status.innerText="Mengirim...";
+  const res=await fetch("/api/send",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({phone, message:msg})
+  });
+  status.innerText="Terkirim (cek WA)";
+}
+</script>
+</body>
+</html>

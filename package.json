@@ -1,0 +1,6 @@
+{
+  "name": "serverless-wa-gateway",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {}
+}
